@@ -40,7 +40,7 @@ export class Machine {
         lineGroup.dashArray = [15, 5, 2, 5];
 
     }
-    update(event: any, scope: paper.PaperScope) {
+    update(_event: any, scope: paper.PaperScope) {
         if (!this.isRunning)
             return;
         this.incrementStep()

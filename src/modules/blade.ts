@@ -83,7 +83,7 @@ export class Blade implements IBlade {
         point.fillColor = POINT_COLOR;
         return point;
     }
-    draw(scope: paper.PaperScope): void { }
+    draw(_scope: paper.PaperScope): void { }
     rotate() {
         const delta = this.rotation - this.previousAngle;
         this.previousAngle = this.rotation;
