@@ -57,7 +57,7 @@ export class Machine {
         this.topBlade.draw(scope)
         this.bottomBlade.draw(scope)
         scope.view.zoom = 2.4;
-        scope.view.onFrame = (event: any) => {
+        scope.view.onFrame = () => {
             if (!this.isRunning)
                 return;
             this.incrementStep();
