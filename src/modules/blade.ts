@@ -129,6 +129,7 @@ export class Blade implements IBlade {
 
     }
     update(step: number, stepCount: number, scope: paper.PaperScope): paper.Path {
+        console.log("Step: " + step)
         this.rotation = this.rotationConfig.getValue(step);
         this.position = this.positionConfig.getValue(step);
 

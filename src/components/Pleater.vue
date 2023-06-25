@@ -102,8 +102,10 @@ onMounted(() => {
             type="range"
             class="step-slider__input"
             min="0"
-            max="9999"
-            v-model="machine.currentStep"
+            max="10000"
+            step="100"
+            v-model.number="machine.currentStep"
+            @input="updateMachine"
             @change="updateMachine"
           />
         </div>

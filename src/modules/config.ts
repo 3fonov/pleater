@@ -21,7 +21,7 @@ export class Config {
     }
 
     getNearestSteps(step: number): [fromStep: ConfigStep, toStep?: ConfigStep] {
-        const activeSteps = this.steps.filter((step) => step.step || step.step == 0);
+        const activeSteps = this.steps.filter((step) => step.step >= 0 && step.value >= -10000 && step.value <= 10000);
         if (activeSteps[0].step >= step) {
             return [activeSteps[0], undefined]
         }

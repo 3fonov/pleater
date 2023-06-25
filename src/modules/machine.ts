@@ -40,6 +40,7 @@ export class Machine {
         lineGroup.dashArray = [15, 5, 2, 5];
 
     }
+
     update(scope: paper.PaperScope) {
 
         const topBladeLine = this.topBlade.update(this.currentStep, this.stepCount, scope)
