@@ -40,10 +40,8 @@ export class Machine {
         lineGroup.dashArray = [15, 5, 2, 5];
 
     }
-    update(_event: any, scope: paper.PaperScope) {
-        if (!this.isRunning)
-            return;
-        this.incrementStep()
+    update(scope: paper.PaperScope) {
+
         const topBladeLine = this.topBlade.update(this.currentStep, this.stepCount, scope)
         const bottomBladeLine = this.bottomBlade.update(this.currentStep, this.stepCount, scope)
         if (topBladeLine.intersects(bottomBladeLine)) {
@@ -59,7 +57,10 @@ export class Machine {
         this.bottomBlade.draw(scope)
         scope.view.zoom = 2.4;
         scope.view.onFrame = (event: any) => {
-            this.update(event, scope)
+            if (!this.isRunning)
+                return;
+            this.incrementStep();
+            this.update(scope)
         };
     }
 

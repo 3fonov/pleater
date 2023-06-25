@@ -18,6 +18,11 @@ function toggleMachine() {
     refresh();
   }
 }
+function updateMachine() {
+  if (scope.value) {
+    machine.value.update(scope.value);
+  }
+}
 function refresh() {
   if (scope.value) {
     intersects.value = false;
@@ -92,6 +97,16 @@ onMounted(() => {
           <div class="current_step">#{{ machine.currentStep }}</div>
           <div class="intersects__alert" v-if="intersects">&times;</div>
         </div>
+        <div class="step-slider">
+          <input
+            type="range"
+            class="step-slider__input"
+            min="0"
+            max="9999"
+            v-model="machine.currentStep"
+            @change="updateMachine"
+          />
+        </div>
         <canvas :id="canvasId" class="canvas__element"></canvas>
       </div>
     </div>
@@ -127,12 +142,21 @@ onMounted(() => {
 .canvas__bar {
   @apply flex flex-row justify-between mb-2;
 }
+.current_step {
+  @apply grow-0 w-1/3;
+}
 .intersects__alert {
-  @apply rounded-full bg-red-500 text-white w-6 text-center h-6;
+  @apply rounded-full bg-red-500 text-white w-6 text-center h-6 grow-0;
 }
 .canvas__element {
   @apply w-full block h-full;
   @apply bg-blue-700;
+}
+.step-slider {
+  @apply grow w-full;
+}
+.step-slider__input {
+  @apply w-full;
 }
 </style>
 ../modules/Pleater
